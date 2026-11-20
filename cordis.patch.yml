@@ -1,0 +1,5 @@
+# Activates the bundle. The Host half is inert; the Client half ships through
+# package.json `dsh.client` and maps a left-edge swipe to back-then-drawer.
+- insert:
+    - id: dsh-swipe-back
+      name: 'dsh-swipe-back'
