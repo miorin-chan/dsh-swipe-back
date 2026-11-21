@@ -16,6 +16,13 @@
 - `locale/*.json` 仅保存 Plugin Manager 的展示文案，八种语言为 `en`、`zh`、`ja`、`de`、`es`、`fr`、`pt`、`ru`。
   [icon.svg](icon.svg) 是 bundle 图标。
 
+## 开发约束
+
+- 新增实现用 TypeScript，复用与目标 DSH 版本匹配的官方类型，在接口、配置和事件中保留类型信息，并同步维护类型依赖。
+- 只用 DSH 支持的插件 API 和扩展点实现新行为。
+  禁止修改 DSH 源码或安装产物，也禁止用全局猴子补丁或覆写内部实现绕过边界。
+  扩展点不足时说明缺口，并将实现限制在插件能力内。
+
 ## 文档与验证
 
 - [README.md](README.md) 是中文用户文档，[README.en.md](README.en.md) 是英文版。
