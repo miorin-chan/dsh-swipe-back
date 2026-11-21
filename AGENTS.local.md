@@ -5,10 +5,11 @@
 
 ## 范围与结构
 
-- 本 bundle 独立安装和启停。[client.js](client.js) 是浏览器模块，文件头记录手势优先级与系统返回的边界。
-  [index.js](index.js) 是供 [bundle patch](cordis.patch.yml) 加载的空 Host 模块。
+- 本 bundle 可独立安装和启停。[浏览器源码](src/client/index.ts) 构建为 [client.js](client.js)。
+  [Host 源码](src/host/index.ts) 构建为 [index.js](index.js)。
 - 依赖 `layout`、`sidebarRight` 服务和 frame 的布局属性。
-  手势按抽屉、全局面板、右侧栏的顺序返回，最后才打开会话列表。
+  手势按抽屉、面板内上一级、全局面板、右侧栏的顺序返回，最后才打开会话列表。
+  插件页复用页面的返回按钮，计划任务页复用 Escape 返回动作；升级 DSH 后复验相应的 DOM 标记。
   抽屉打开时可从任意位置双向滑动关闭。
   其余动作限独立 PWA 或无历史的标签页，并从左边缘向右滑。
 - 通过 `ctx.effect` 注册触摸监听器并在卸载时清理。
@@ -28,7 +29,8 @@
 
 - [README.md](README.md) 是中文用户文档，[README.en.md](README.en.md) 是英文版。
   设计与验证记录用中文，入口见 [文档索引](docs/README.md)。
-- 在项目目录运行 `node --check client.js && node --check index.js` 及 `npm pack --dry-run --json`。
+- 在项目目录运行 `pnpm install --ignore-scripts` 安装开发依赖，随后运行 `npm run build` 和 `npm run check`。
+  打包检查用 `npm pack --dry-run --json`。
   从工作区运行 `node tools/new-dsh-plugin/cli.mjs --check plugins/dsh-swipe-back`。
 - 如需设备验证，用临时 profile 确认手机宽度下的返回顺序和抽屉双向关闭。
   对照独立 PWA、有历史和无历史的 Safari 标签页，验证手势与系统返回的边界。

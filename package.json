@@ -5,6 +5,19 @@
   "license": "MIT",
   "description": "Left-edge swipe on the phone Web UI: perform the available back step first, otherwise open the session list drawer.",
   "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "check": "node --test && npm run typecheck && node scripts/build.mjs --check && node scripts/sync-types.mjs --check"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.1.0",
+    "@deepseek-ai/dsh-client-ui-layout": "0.2.2-rc.5",
+    "@deepseek-ai/dsh-client-ui-sidebar-right": "0.2.2-rc.5",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.0"
+  },
   "keywords": [
     "deepseek-harness",
     "dsh",

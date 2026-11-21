@@ -6,12 +6,13 @@ On the phone Web UI, swipe right from the left edge to take the first available 
 
 1. Close the session list drawer if it is open.
    You can dismiss an open drawer with a left or right swipe starting anywhere.
-2. Leave a global panel such as Settings or Plugins to return to the conversation.
-3. Collapse the right sidebar if it is expanded.
-4. Open the session list drawer if none of the above applies.
+2. Return one level within Plugins or Schedules, such as from plugin configuration to the bundle details.
+3. Leave a top-level global panel to return to the conversation.
+4. Collapse the right sidebar if it is expanded.
+5. Open the session list drawer if none of the above applies.
 
 The gesture works at phone widths below 768px, where the sidebar is a drawer.
-Drawer dismissal also works in Safari tabs.
+It pauses while a modal or menu is open. Drawer dismissal also works in Safari tabs.
 The remaining steps work in an app added to the Home Screen or a browser tab with no previous history entry.
 When a page has a previous history entry, Safari handles the system back gesture.
 
