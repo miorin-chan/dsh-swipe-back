@@ -51,3 +51,6 @@
 - 在项目根运行 `prek install`，之后提交时会自动重排暂存的 Markdown。
 - 在 DSH 沙箱内提交时，用 `PREK_HOME="${TMPDIR:?}/prek-dsh" git commit -m "<commit message>"`，
   让 reflow 钩子照常运行，并把 `prek` 的缓存和日志写到可写的临时目录。
+
+`npm run build:tools` 从 `scripts/` 下的 `.mts` 生成同路径 `.mjs`，Git 跟踪 TypeScript 源码。
+Node.js 22.18 或更新版本直接运行 `.test.mts`。

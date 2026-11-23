@@ -5,12 +5,13 @@
   "description": "Left-edge swipe on the phone Web UI: perform the available back step first, otherwise open the session list drawer.",
   "type": "module",
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "npm run build:tools && node scripts/build.mjs",
     "prepare": "npm run build 1>&2",
     "typecheck": "tsc -p tsconfig.json",
     "test": "npm run build && npm run test:unit --",
     "test:unit": "node --test",
-    "check": "npm run test:unit && npm run typecheck && node scripts/build.mjs --check && node scripts/sync-types.mjs --check"
+    "check": "npm run build:tools && npm run test:unit && npm run typecheck && node scripts/build.mjs --check && node scripts/sync-types.mjs --check",
+    "build:tools": "tsc -p tsconfig.tools.json"
   },
   "devDependencies": {
     "@deepseek-ai/cordis": "4.1.0",
