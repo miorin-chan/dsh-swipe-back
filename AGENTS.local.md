@@ -40,7 +40,7 @@
   设计与验证记录用中文，入口见 [文档索引](docs/README.md)。
 - 插件详情页要整体短、每项一眼能懂。
   只展示用户当下需要知道或操作的内容，细节按需展开。
-- 在项目目录运行 `pnpm install --ignore-scripts` 安装开发依赖，随后运行 `npm run build` 和 `npm run check`。
+- 在项目目录运行 `pnpm install` 安装开发依赖并构建，随后运行 `npm run check`。
   打包检查用 `npm pack --dry-run --json`。
   从工作区运行 `node tools/new-dsh-plugin/cli.mjs --check plugins/dsh-swipe-back`。
 - 如需设备验证，用临时 profile 确认手机宽度下的返回顺序和抽屉双向关闭。
