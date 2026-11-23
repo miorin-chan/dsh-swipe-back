@@ -1,7 +1,6 @@
 {
   "name": "@miorin/dsh-swipe-back",
   "version": "0.1.0",
-  "private": true,
   "license": "MIT",
   "description": "Left-edge swipe on the phone Web UI: perform the available back step first, otherwise open the session list drawer.",
   "type": "module",
@@ -58,5 +57,8 @@
         "@deepseek-ai/dsh-client-ui-sidebar-right"
       ]
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
