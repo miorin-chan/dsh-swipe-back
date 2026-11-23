@@ -43,7 +43,7 @@
   只展示用户当下需要知道或操作的内容，细节按需展开。
 - 在新检出的项目目录运行 `pnpm install --frozen-lockfile` 安装开发依赖并构建，随后运行 `npm run check`。
   打包检查用 `npm pack --dry-run --json`。
-  从工作区运行 `node tools/new-dsh-plugin/cli.mjs --check plugins/dsh-swipe-back`。
+  从工作区运行 `node tools/new-dsh-plugin/cli.mts --check plugins/dsh-swipe-back`。
 - 如需设备验证，用临时 profile 确认手机宽度下的返回顺序和抽屉双向关闭。
   对照独立 PWA、有历史和无历史的 Safari 标签页，验证手势与系统返回的边界。
 - 用 `docs/scripts/reflow md <path>` 重排修改过的英文 Markdown。
