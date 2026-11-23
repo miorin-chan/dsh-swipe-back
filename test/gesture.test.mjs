@@ -35,9 +35,14 @@ function fixture({ panel = 'plugins', drawerOpen = false, rightOpen = false, his
     hasAttribute: (name) => name === 'data-sidebar-collapsed' ? !state.drawerOpen : !state.rightOpen,
     querySelector: () => main,
   }
+  const drawerModal = { ...element, matches: (selector) => selector === '[data-shortcut-modal="sidebar"]' }
+  const overlay = { ...element, matches: () => false }
   const document = {
     querySelector: () => frame,
-    querySelectorAll: () => state.overlay ? [element] : [],
+    querySelectorAll: (selector) => {
+      assert.equal(selector, '[aria-modal="true"], [role="menu"]')
+      return [...(state.drawerOpen ? [drawerModal] : []), ...(state.overlay ? [overlay] : [])]
+    },
     addEventListener: (name, listener) => listeners.set(name, listener),
     removeEventListener: (name) => listeners.delete(name),
   }
@@ -106,6 +111,10 @@ test('Schedules detail uses the page Escape handler before the panel closes', ()
 
 test('drawer dismissal, right sidebar, and system history retain their priorities', () => {
   const system = fixture({ history: 2, drawerOpen: true })
+  system.state.overlay = true
+  system.swipe({ x: 180, dx: -55 })
+  assert.deepEqual(system.actions, [])
+  system.state.overlay = false
   system.swipe({ x: 180, dx: -55 })
   system.swipe()
   assert.deepEqual(system.actions, ['drawer'])

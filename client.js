@@ -72,7 +72,7 @@ function apply(ctx) {
   let start = null;
   const frame = () => document.querySelector("[data-sidebar-drawer]");
   const drawerOpen = (el) => !el.hasAttribute("data-sidebar-collapsed");
-  const overlayOpen = () => [...document.querySelectorAll('[aria-modal="true"], [role="menu"]')].some(visible);
+  const overlayOpen = () => [...document.querySelectorAll('[aria-modal="true"], [role="menu"]')].some((element) => !element.matches('[data-shortcut-modal="sidebar"]') && visible(element));
   const back = (el) => {
     if (drawerOpen(el)) {
       ctx.layout.toggleSidebar();

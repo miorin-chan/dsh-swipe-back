@@ -56,7 +56,10 @@ export function apply(ctx: Context): void {
 
   const frame = () => document.querySelector('[data-sidebar-drawer]')
   const drawerOpen = (el: Element) => !el.hasAttribute('data-sidebar-collapsed')
-  const overlayOpen = () => [...document.querySelectorAll('[aria-modal="true"], [role="menu"]')].some(visible)
+  // DSH marks the open session drawer as a modal. It is a swipe target,
+  // while other visible dialogs and menus still take priority.
+  const overlayOpen = () => [...document.querySelectorAll('[aria-modal="true"], [role="menu"]')]
+    .some((element) => !element.matches('[data-shortcut-modal="sidebar"]') && visible(element))
 
   const back = (el: Element) => {
     if (drawerOpen(el)) {
