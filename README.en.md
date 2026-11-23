@@ -16,6 +16,11 @@ It pauses while a modal or menu is open. Drawer dismissal also works in Safari t
 The remaining steps work in an app added to the Home Screen or a browser tab with no previous history entry.
 When a page has a previous history entry, Safari handles the system back gesture.
 
+## Local installation
+
+Run `pnpm install --frozen-lockfile` in a fresh checkout to install dependencies and build the plugin.
+Then select the directory in DSH under **Plugins → Add plugin**.
+
 ## Layout dependencies
 
 - `ctx.layout.toggleSidebar()`, `ctx.layout.panelInfo`, and `ctx.layout.selectPanel(null)`

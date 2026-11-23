@@ -5,8 +5,9 @@
 
 ## 范围与结构
 
-- 本 bundle 可独立安装和启停。[浏览器源码](src/client/index.ts) 构建为 [client.js](client.js)。
-  [Host 源码](src/host/index.ts) 构建为 [index.js](index.js)。
+- 本 bundle 可独立安装和启停。
+  [浏览器源码](src/client/index.ts) 生成 `client.js`，[Host 源码](src/host/index.ts) 生成 `index.js`。
+  Git 忽略这两个产物。
 - 依赖 `layout`、`sidebarRight` 服务和 frame 的布局属性。
   手势按抽屉、面板内上一级、全局面板、右侧栏的顺序返回，最后才打开会话列表。
   插件页复用页面的返回按钮，计划任务页复用 Escape 返回动作；升级 DSH 后复验相应的 DOM 标记。
@@ -40,7 +41,7 @@
   设计与验证记录用中文，入口见 [文档索引](docs/README.md)。
 - 插件详情页要整体短、每项一眼能懂。
   只展示用户当下需要知道或操作的内容，细节按需展开。
-- 在项目目录运行 `pnpm install` 安装开发依赖并构建，随后运行 `npm run check`。
+- 在新检出的项目目录运行 `pnpm install --frozen-lockfile` 安装开发依赖并构建，随后运行 `npm run check`。
   打包检查用 `npm pack --dry-run --json`。
   从工作区运行 `node tools/new-dsh-plugin/cli.mjs --check plugins/dsh-swipe-back`。
 - 如需设备验证，用临时 profile 确认手机宽度下的返回顺序和抽屉双向关闭。

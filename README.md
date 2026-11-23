@@ -15,6 +15,11 @@
 其余各步只在「添加到主屏幕」的 PWA，或没有历史记录的标签页里启用；有上一页的 Safari 标签页仍归系统返回手势，
 避免双重动作。
 
+## 本地安装
+
+在新检出的目录中运行 `pnpm install --frozen-lockfile` 安装依赖并构建插件。
+然后在 DSH 的**插件 → 添加插件**中选择该目录。
+
 ## 依赖的公开面
 
 - `ctx.layout.toggleSidebar()` / `ctx.layout.panelInfo` / `ctx.layout.selectPanel(null)`
