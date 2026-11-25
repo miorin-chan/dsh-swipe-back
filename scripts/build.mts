@@ -14,8 +14,8 @@
  *   node scripts/build.mjs           write both artifacts
  *   node scripts/build.mjs --check   fail when an artifact is stale
  *
- * The `prepare` script builds the local artifacts during dependency installation
- * and packaging. Use `--check` to compare existing artifacts with the sources.
+ * esbuild is a development dependency. Git ignores the generated artifacts.
+ * `--check` catches missing or stale local output.
  */
 
 import type { BuildOptions, Plugin } from 'esbuild'
@@ -43,10 +43,10 @@ const CLIENT_EXTERNAL = [
 
 const HOST_EXTERNAL = ['node:*']
 
-/** Rewrite `../lib/<name>.js` from `src/host` to `./lib/<name>.js` in the generated `index.js`. */
+/** `src/host` imports `../lib/<name>.js`; the built `index.js` imports `./lib/<name>.js`. */
 const HOST_MODULE_IMPORT = /^\.\.\/lib\/(.+\.js)$/
 
-/** Keep the Host entry's private-module imports on the generated `lib/` artifacts. */
+/** Keep the Host entry's private-module imports pointing at the built `lib/` modules. */
 const hostModules: Plugin = {
   name: 'host-modules',
   setup(context) {
@@ -158,8 +158,8 @@ if (clientEntry !== undefined) {
 
 // Private Host modules stay separate artifacts: tests and the published package
 // import `lib/<name>.js` directly, so the Host bundle must not inline them away.
-// The `hostModules` plugin above points the Host entry's `../lib/<name>.js`
-// imports to the generated modules.
+// The `hostModules` plugin above keeps the Host entry's `../lib/<name>.js`
+// imports pointing at the emitted modules.
 const moduleDir = resolve(ROOT, 'src/lib')
 if (existsSync(moduleDir)) {
   for (const path of await sourcesOf(moduleDir)) {
