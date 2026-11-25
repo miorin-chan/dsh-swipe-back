@@ -1,6 +1,6 @@
 {
   "name": "@miorin/dsh-swipe-back",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "Left-edge swipe on the phone Web UI: perform the available back step first, otherwise open the session list drawer.",
   "type": "module",
@@ -64,5 +64,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miorin-chan/dsh-swipe-back.git"
+  },
+  "homepage": "https://github.com/miorin-chan/dsh-swipe-back#readme",
+  "bugs": {
+    "url": "https://github.com/miorin-chan/dsh-swipe-back/issues"
   }
 }
