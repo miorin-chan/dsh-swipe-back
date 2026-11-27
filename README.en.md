@@ -16,6 +16,16 @@ It pauses while a modal or menu is open. Drawer dismissal also works in Safari t
 The remaining steps work in an app added to the Home Screen or a browser tab with no previous history entry.
 When a page has a previous history entry, Safari handles the system back gesture.
 
+## Screenshots
+
+Captured with touch input in Chromium's mobile viewport, with the DSH interface in Chinese.
+These screenshots do not show the iOS system back gesture.
+
+| Result | Light | Dark |
+| --- | --- | --- |
+| Open the drawer with an edge swipe | ![Light theme, session drawer open](docs/assets/screenshots/main-light.png) | ![Dark theme, session drawer open](docs/assets/screenshots/main-dark.png) |
+| Swipe left across the drawer to dismiss it | ![Light theme, session drawer closed](docs/assets/screenshots/dismiss-light.png) | ![Dark theme, session drawer closed](docs/assets/screenshots/dismiss-dark.png) |
+
 ## Local installation
 
 Run `pnpm install --frozen-lockfile` in a fresh checkout to install dependencies and build the plugin.

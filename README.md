@@ -15,6 +15,15 @@
 其余各步只在「添加到主屏幕」的 PWA，或没有历史记录的标签页里启用；有上一页的 Safari 标签页仍归系统返回手势，
 避免双重动作。
 
+## 界面实拍
+
+截图来自移动视口中的 Chromium。测试通过真实触摸输入打开、关闭会话抽屉，不是 iOS 系统返回手势的截图。
+
+| 操作结果 | 浅色 | 深色 |
+| --- | --- | --- |
+| 从左边缘右滑，打开会话抽屉 | ![浅色会话抽屉打开](docs/assets/screenshots/main-light.png) | ![深色会话抽屉打开](docs/assets/screenshots/main-dark.png) |
+| 在已打开的抽屉上左滑，回到会话 | ![浅色会话抽屉收起](docs/assets/screenshots/dismiss-light.png) | ![深色会话抽屉收起](docs/assets/screenshots/dismiss-dark.png) |
+
 ## 本地安装
 
 在新检出的目录中运行 `pnpm install --frozen-lockfile` 安装依赖并构建插件。
